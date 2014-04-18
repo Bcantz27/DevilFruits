@@ -7,6 +7,7 @@ import java.util.List;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -126,6 +127,12 @@ public class PlayerListener implements Listener
 		    	
 				switch(f.getId())
 				{
+					case 4:		//Flame Fruit
+						if(FruitManager.getInstance().roll(25))
+						{
+							((Player) damager).setFireTicks(2*20);
+						}
+					break;
 					case 5:		//GomuGomuNo Fruit
 						if(((Player) damager).getItemInHand() == null)
 						{
@@ -161,6 +168,14 @@ public class PlayerListener implements Listener
 						if(!((Player)ent).hasPotionEffect(PotionEffectType.INCREASE_DAMAGE))
 						{
 							((Player)ent).addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 5*20, 2));
+						}
+						break;
+					case 24:	//Steel Fruit
+						if(FruitManager.getInstance().roll(20))
+						{
+							((Player)ent).playSound(((Player)ent).getLocation(), Sound.ANVIL_LAND, 10, 1);
+							((Player)damager).playSound(((Player)ent).getLocation(), Sound.ANVIL_LAND, 10, 1);
+							e.setCancelled(true);
 						}
 						break;
 					default: 

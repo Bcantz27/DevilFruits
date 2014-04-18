@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.bukkit.ChatColor;
@@ -323,10 +324,18 @@ public class FruitManager {
 		}
 	}
 	
-	public void printFruitData(Player p)
+	public boolean roll(int chance)
 	{
-		String[][] fruitsPlayers = new String[Fruits.values().length][10];
-	
+		boolean flag = false;
+		Random generator = new Random();
+		int randomNumber = generator.nextInt(100);
+		
+		if(randomNumber <= chance)
+		{
+			flag = true;
+		}
+		
+		return flag;
 	}
 	
 	public boolean isItemAFruit(ItemStack is)
@@ -405,7 +414,7 @@ public class FruitManager {
 			public Fruit getFruit()
 			{
 				Fruit tempFruit = new Fruit(ChatColor.RED + "Flame Fruit", 4,260,10);
-				tempFruit.setDesc("Shift-Click to shoot fireballs. Also resistant to fire.");
+				tempFruit.setDesc("Resistent to fire and 25% chance to set attackers on fire");
 				tempFruit.addPassiveEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 9999999, 4));
 				
 				return tempFruit;
@@ -586,6 +595,40 @@ public class FruitManager {
 				Fruit tempFruit = new Fruit(ChatColor.BLACK + "Obsidian Fruit", 21,297);
 				tempFruit.setDesc("Immune to fire and projectile damage.");
 				tempFruit.addPassiveEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 9999999, 2));
+				
+				return tempFruit;
+			}
+		},
+		Hero{
+			@Override
+			public Fruit getFruit()
+			{
+				Fruit tempFruit = new Fruit(ChatColor.BLUE + "Hero Fruit", 22,400);
+				tempFruit.setDesc("Increased damage and speed.");
+				tempFruit.addPassiveEffect(new PotionEffect(PotionEffectType.SPEED, 9999999, 2));
+				tempFruit.addPassiveEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 9999999, 2));
+				
+				return tempFruit;
+			}
+		},
+		Villain{
+			@Override
+			public Fruit getFruit()
+			{
+				Fruit tempFruit = new Fruit(ChatColor.BLACK + "Villain Fruit", 23,375);
+				tempFruit.setDesc("Increased damage and fire resistance.");
+				tempFruit.addPassiveEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 9999999, 2));
+				tempFruit.addPassiveEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 9999999, 2));
+				
+				return tempFruit;
+			}
+		},
+		Steel{
+			@Override
+			public Fruit getFruit()
+			{
+				Fruit tempFruit = new Fruit(ChatColor.GRAY + "Steel Fruit", 24,320);
+				tempFruit.setDesc("20% chance to block incoming attacks.");
 				
 				return tempFruit;
 			}
