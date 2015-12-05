@@ -481,7 +481,7 @@ public class FruitManager {
 			public Fruit getFruit()
 			{
 				Fruit tempFruit = new Fruit(ChatColor.RED + "Flame Fruit", 4,260,5);
-				tempFruit.setDesc("Shift-Click to shoot fireballs. Also resistant to fire.");
+				tempFruit.setDesc("Everything you hit or that hits you sets aflame. Also resistant to fire.");
 				tempFruit.addPassiveEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 9999999, 3));
 				
 				return tempFruit;

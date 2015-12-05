@@ -67,7 +67,7 @@ public class PlayerListener implements Listener
 	    	
 			switch(f.getId())
 			{
-			case 23:	//Knowledge Fruit more like stupid fruit
+			case 23:	//Knowledge Fruit
 				if(FruitManager.getInstance().getCooldowns().get(p.getName()) != null)
 				{
 					if(!(p.hasPotionEffect(PotionEffectType.INCREASE_DAMAGE)))
@@ -295,6 +295,9 @@ public class PlayerListener implements Listener
 		    	
 				switch(f.getId())
 				{
+					case 4:		//Flame Fruit
+						((Player)ent).setFireTicks(10*20);
+						break;
 					case 9:		//Zombie Fruit
 						if(!((Player)ent).hasPotionEffect(PotionEffectType.HUNGER))
 						{
