@@ -26,7 +26,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 import com.piraterevenge.DevilFruits;
 
 //Test
-//Rainbows Test change
+//Rainbows Test change *blahlahlahl*
+//Bryans 2nd Test Changs
 public class FruitManager {
 	
 	private ConcurrentHashMap<String,Integer> fruits = new ConcurrentHashMap<String,Integer>(); // PlayerName, Fruit ID
