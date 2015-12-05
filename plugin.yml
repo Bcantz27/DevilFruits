@@ -1,0 +1,13 @@
+name: DevilFruits
+main: com.piraterevenge.DevilFruits
+version: 0.2
+description: By SecretBryan
+commands:
+  DevilFruits:
+      description: DevilFruits Base Command!
+      aliases: [df]
+
+permissions:
+  DevilFruits.admin:
+    description: Gives access to everything!
+    default: op
