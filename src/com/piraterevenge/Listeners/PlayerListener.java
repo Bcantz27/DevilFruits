@@ -133,32 +133,6 @@ public class PlayerListener implements Listener
 	    	
 			switch(f.getId())
 			{
-				case 4:		//Flame Fruit
-					if(event.getItem() == null)
-					{
-						if(FruitManager.getInstance().getCooldowns().get(p.getName()) != null)
-						{
-							if(p.isSneaking())
-							{
-								if(FruitManager.getInstance().getCooldowns().get(p.getName()) == 0L)
-								{
-									FruitManager.getInstance().setPlayerCooldown(p);
-									Location loc = p.getEyeLocation().toVector().add(p.getLocation().getDirection().multiply(2)).toLocation(p.getWorld(), p.getLocation().getYaw(), p.getLocation().getPitch());
-									fireball = p.getWorld().spawn(loc, Fireball.class);
-									fireball.setVelocity(p.getLocation().getDirection().multiply(3));
-								}
-								else
-								{
-									p.sendMessage(ChatColor.RED + "Ability on cooldown for " + FruitManager.getInstance().getCooldowns().get(p.getName()) + " seconds.");
-								}
-							}
-						}
-						else
-						{
-							FruitManager.getInstance().setPlayerCooldown(p,0);
-						}
-					}
-					break;
 				case 16:		//Blink Fruit
 					if(event.getItem() == null)
 					{
@@ -239,7 +213,7 @@ public class PlayerListener implements Listener
 						}
 						if(!((Player)damager).hasPotionEffect(PotionEffectType.WITHER))
 						{
-							((Player)damager).addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 2*20, 1));
+							((Player)damager).addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 6*20, 1));
 						}
 						break;
 					case 14:	//Jugg Fruit
@@ -301,7 +275,7 @@ public class PlayerListener implements Listener
 					case 9:		//Zombie Fruit
 						if(!((Player)ent).hasPotionEffect(PotionEffectType.HUNGER))
 						{
-							((Player)ent).addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 2*20, 2));
+							((Player)ent).addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 11*20, 1));
 						}
 						break;
 					case 18:	//Weakness Fruit
@@ -360,6 +334,12 @@ public class PlayerListener implements Listener
 							FruitManager.getInstance().setPlayerCooldown((Player) damager,0);
 						}
 						break;
+					case 29:		//Spider Fruit
+						if(!((Player)ent).hasPotionEffect(PotionEffectType.POISON))
+						{
+							((Player)ent).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 6*20, 1));
+						}
+						break;
 					default:
 				}
 			}
@@ -372,6 +352,12 @@ public class PlayerListener implements Listener
 		    	
 				switch(f.getId())
 				{
+					case 4:		//Flame Fruit
+						if(damager instanceof Projectile)
+						{
+							e.setCancelled(true);
+						}
+						break;
 					case 5:		//GomuGomuNo Fruit
 						if(damager instanceof Projectile || damager instanceof LightningStrike)
 						{

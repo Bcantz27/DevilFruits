@@ -481,7 +481,7 @@ public class FruitManager {
 			public Fruit getFruit()
 			{
 				Fruit tempFruit = new Fruit(ChatColor.RED + "Flame Fruit", 4,260,5);
-				tempFruit.setDesc("Everything you hit or that hits you sets aflame. Also resistant to fire.");
+				tempFruit.setDesc("Immune to fire, everything you hit lights on fire, and projectiles burn away.");
 				tempFruit.addPassiveEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 9999999, 3));
 				
 				return tempFruit;
@@ -754,7 +754,7 @@ public class FruitManager {
 			public Fruit getFruit()
 			{
 				Fruit tempFruit = new Fruit(ChatColor.YELLOW + "Spider Fruit", 29,375);
-				tempFruit.setDesc("Hold shift to climb up walls.");
+				tempFruit.setDesc("Poison bite and Hold shift to climb up walls.");
 				
 				return tempFruit;
 			}
