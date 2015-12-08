@@ -643,8 +643,8 @@ public class FruitManager {
 			@Override
 			public Fruit getFruit()
 			{
-				Fruit tempFruit = new Fruit(ChatColor.YELLOW + "Life Fruit", 19,360,11);
-				tempFruit.setDesc("Heal on all melee attacks.");
+				Fruit tempFruit = new Fruit(ChatColor.YELLOW + "Life Fruit", 19,360,10);
+				tempFruit.setDesc("Attacking gives a healing boost every 10 seconds.");
 				
 				return tempFruit;
 			}

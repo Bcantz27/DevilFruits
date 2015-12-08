@@ -256,7 +256,7 @@ public class PlayerListener implements Listener
 						}
 						if(!((Player)damager).hasPotionEffect(PotionEffectType.CONFUSION))
 						{
-							((Player)damager).addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 5*20, 2));
+							((Player)damager).addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 8*20, 2));
 						}
 						break;
 					default: 
@@ -277,15 +277,23 @@ public class PlayerListener implements Listener
 						{
 							((Player)ent).addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 11*20, 1));
 						}
+						if(!((Player)ent).hasPotionEffect(PotionEffectType.WEAKNESS))
+						{
+							((Player)ent).addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 8*20, 0));
+						}
+						if(!((Player)ent).hasPotionEffect(PotionEffectType.SLOW))
+						{
+							((Player)ent).addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 6*20, 0));
+						}
 						break;
 					case 18:	//Weakness Fruit
 						if(!((Player)damager).hasPotionEffect(PotionEffectType.DAMAGE_RESISTANCE))
 						{
-							((Player)damager).addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 2*20, 1));
+							((Player)damager).addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 7*20, 1));
 						}
 						if(!((Player)ent).hasPotionEffect(PotionEffectType.WEAKNESS))
 						{
-							((Player)ent).addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 5*20, 0));
+							((Player)ent).addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 7*20, 1));
 						}
 						break;
 					case 19:	//Life Fruit
@@ -296,7 +304,7 @@ public class PlayerListener implements Listener
 								FruitManager.getInstance().setPlayerCooldown((Player) damager);
 								if(!((Player)damager).hasPotionEffect(PotionEffectType.REGENERATION))
 								{
-									((Player)damager).addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 5*20, 2));
+									((Player)damager).addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 11*20, 2));
 								}
 							}
 						}
